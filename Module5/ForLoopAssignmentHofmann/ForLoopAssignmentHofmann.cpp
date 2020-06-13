@@ -15,15 +15,6 @@ using namespace std;
 int main()
 {
 
-    //               TEST TABLE
-    //    |  User Input  |    Result    |
-    //     -----------------------------
-    //          75         Test number 5 is 75%
-    //          45         Test number 5 is 45%
-    //          10         Test number 5 is 10%
-    //          100        Test number 5 is 100%
-    //          0          Test number 5 is 0%
-
     // VARIABLE DECLARATIONS
     const int LOOP_LENGTH = 10;
 
@@ -42,3 +33,12 @@ int main()
 
     return 0;
 }  // End of main method
+
+//               TEST TABLE
+//    |  User Input  |    Result    |
+//     -----------------------------
+//          75         Test number 5 is 75%
+//          45         Test number 5 is 45%
+//          10         Test number 5 is 10%
+//          100        Test number 5 is 100%
+//          0          Test number 5 is 0%
