@@ -1,0 +1,2 @@
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module4\WinslowGlassHofmann\Debug\WinslowGlassHofmann.exe
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module4\WinslowGlassHofmann\Debug\WinslowGlassHofmann.pdb

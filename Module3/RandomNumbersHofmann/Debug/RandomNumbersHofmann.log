@@ -1,0 +1,3 @@
+﻿  RandomNumbersHofmann.cpp
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\Module3\RandomNumbersHofmann\RandomNumbersHofmann.cpp(21,19): warning C4244: 'initializing': conversion from 'time_t' to 'unsigned int', possible loss of data
+  RandomNumbersHofmann.vcxproj -> C:\Users\Nick Hofmann\OneDrive\Desktop\C++\Module3\RandomNumbersHofmann\Debug\RandomNumbersHofmann.exe
