@@ -13,7 +13,7 @@ void averageTemperature();
 
 int main()
 {
-
+	// Function call
 	averageTemperature();
 
 	return 0;
