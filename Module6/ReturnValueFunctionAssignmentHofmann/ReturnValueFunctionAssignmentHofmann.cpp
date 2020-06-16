@@ -43,3 +43,30 @@ double averageFourTemperature(int temp1, int temp2, int temp3, int temp4)
 
 	return averageTemperature;
 } // End of averageFourTemperature() function.
+
+/*
+
+				TEST TABLE
+				----------
+	1st Temp |     1
+	2nd Temp |     2
+	3rd Temp |     3
+	4th Temp |     4
+			---------
+		RESULT = 2.5
+
+	1st Temp |     5
+	2nd Temp |     6
+	3rd Temp |     9
+	4th Temp |     9
+			---------
+		RESULT = 7.25
+
+	1st Temp |     56
+	2nd Temp |     98
+	3rd Temp |     86
+	4th Temp |     48
+			---------
+		RESULT = 72
+
+*/
