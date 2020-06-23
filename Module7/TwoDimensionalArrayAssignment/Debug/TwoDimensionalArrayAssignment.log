@@ -1,0 +1,3 @@
+﻿  TwoDimensionalArrayAssignment.cpp
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module7\TwoDimensionalArrayAssignment\TwoDimensionalArrayAssignment.cpp(47,59): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  TwoDimensionalArrayAssignment.vcxproj -> C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module7\TwoDimensionalArrayAssignment\Debug\TwoDimensionalArrayAssignment.exe
