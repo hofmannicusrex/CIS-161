@@ -18,8 +18,8 @@ int main()
 	const int ARRAY_SIZE = 7;
 	int arrayForManipulation[ARRAY_SIZE];
 
-	// This function call will "import" the values that the user populated the array with inside
-	// the getNumber function.
+	/*This function call will "import" the values that the user populated the array with inside
+	the getNumber function.*/
 	getNumber(arrayForManipulation, ARRAY_SIZE);
 
 	cout << "\nThe contents of that array are as follows:\n\n";
