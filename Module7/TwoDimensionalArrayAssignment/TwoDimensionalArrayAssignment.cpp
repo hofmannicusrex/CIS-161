@@ -1,7 +1,10 @@
 /*  TwoDimensionalArrayAssignment.cpp || Nick Hofmann 6/22/2020
 	nickhofmann1989@hotmail.com | nohofmann@dmacc.edu
 
-	This program will .
+	This program will ask the user to input the amount of food eaten by a set number of monkeys
+	over the course of a set number of days. It will then return the average of all of those
+	numbers as well as the least amount and greatest amount of food eaten by a single monkey
+	in a day.
 */
 #include <iostream>
 #include <iomanip>
