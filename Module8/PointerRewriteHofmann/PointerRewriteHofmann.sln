@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PointerRewriteHofmann", "PointerRewriteHofmann.vcxproj", "{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Debug|x64.ActiveCfg = Debug|x64
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Debug|x64.Build.0 = Debug|x64
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Debug|x86.ActiveCfg = Debug|Win32
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Debug|x86.Build.0 = Debug|Win32
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Release|x64.ActiveCfg = Release|x64
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Release|x64.Build.0 = Release|x64
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Release|x86.ActiveCfg = Release|Win32
+		{543DFFE2-CC80-4CB7-9AA3-9151E18E2E4B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D6A2705-BEBA-4BAD-9245-41885B9BCE80}
+	EndGlobalSection
+EndGlobal
