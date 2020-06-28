@@ -52,6 +52,7 @@ int main()
         cout << "\nEnter the amount of charitable donations for month " << (counter + 1) << ": ";
         cin >> months[counter].donation;
         cout << endl;
+
         // TOTALS ACCUMULATION
         rentTotalAccumulator += months[counter].rent;
         gasTotalAccumulator += months[counter].gas;
@@ -61,6 +62,7 @@ int main()
                                + months[counter].water + months[counter].garbage;
     }  // End of for loop used for gathering user input.
 
+    // Printing out the summary information to the user.
     cout << fixed << showpoint << setprecision(2);
     cout << "\n\nGrand total for all " << NUMBER_OF_MONTHS << " months: $" << grandTotalAccumulator;
     cout << "\nAverage rent cost: $" << (static_cast<double>(rentTotalAccumulator) / NUMBER_OF_MONTHS);
