@@ -27,7 +27,12 @@ public:
     int getProfit() const;
 };
 
-// ========DEFAULT CONSTRUCTOR========
+/*
+ =======================
+ ====    DEFAULT    ====
+ ====  CONSTRUCTOR  ====
+ =======================
+*/
 Vehicle::Vehicle()
 {
     ID = "House";
@@ -35,7 +40,11 @@ Vehicle::Vehicle()
     bluebook = 0;
 }
 
-// ========SETTERS========
+/*
+ =======================
+ ====    SETTERS    ====
+ =======================
+*/
 void Vehicle::setID(string vehicleID)
 {
     ID = vehicleID;
@@ -51,7 +60,11 @@ void Vehicle::setBluebook(int bluebookValue)
     bluebook = bluebookValue;
 }
 
-// ========GETTERS========
+/*
+ =======================
+ ====    GETTERS    ====
+ =======================
+*/
 string Vehicle::getID() const
 {
     return ID;
