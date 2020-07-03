@@ -1,3 +1,9 @@
+/*  HouseholdBudget.h || Nick Hofmann 7/2/2020
+	nickhofmann1989@hotmail.com | nohofmann@dmacc.edu
+
+	Header file containing the HouseholdBudget class and it's accessors
+	and mutators.
+*/
 #pragma once
 
 #include <iostream>

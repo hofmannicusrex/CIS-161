@@ -7,70 +7,41 @@
 */
 
 #include <iostream>
-#include <iomanip>
 #include "HouseholdBudget.h"
 using namespace std;
 
-// Struct representing a household's monthly budget.
-struct HouseholdBudget
-{
-    int rent;         // Monthly rent payment.
-    double gas;       // Monthly gas bill.
-    double water;     // Monthly water bill.
-    int garbage;      // Monthly garbage bill.
-    string donation;  // Charitable donations? I'm not entirely sure.
-    double total;     // The sum of rent, gas, water, and garbage.
-};
-
 int main()
 {
-    // VARIABLE DECLARATIONS
-    const int NUMBER_OF_MONTHS = 4;    // Controls the size of the structure array.
-    int rentTotalAccumulator = 0;      // Accumulator for the rent total.
-    double gasTotalAccumulator = 0;    // Accumulator for the gas total.
-    double waterTotalAccumulator = 0;  // Accumulator for the water total.
-    int garbageTotalAccumulator = 0;   // Accumulator for the garbage total.
-    double grandTotalAccumulator = 0;  // Accumulator for the grand total.
+    // Creating HouseholdBudget objects.
+    HouseholdBudget casaOne, haciendaTwo, cribThree;
 
-    HouseholdBudget months[NUMBER_OF_MONTHS];  // Structure array for number of months to budget.
+    // Outputting the values for the casaOne HouseholdBudget object. DEFAULT CONTRUCTOR VALUES.
+    cout << "Rent Bill for the Month: " << casaOne.getRentBill() << endl;
+    cout << "Water Bill for the Month: " << casaOne.getWaterBill() << endl;
+    cout << "Garbage Bill for the Month: " << casaOne.getGarbageBill() << endl;
+    cout << "Total Bills for the Month: " << casaOne.getTotal() << endl << endl;
 
-    cout << "Welcome to the monthly household budget planning program!\n\n";
+    // Using mutator functions to assign values to the haciendaTwo object's various members.
+    haciendaTwo.setRentBill(950);
+    haciendaTwo.setWaterBill(65.84);
+    haciendaTwo.setGarbageBill(35);
 
-    for (int counter = 0; counter < NUMBER_OF_MONTHS; counter++)
-    {
-        cout << "\nEnter the amount of rent due for month " << (counter + 1) << ": ";
-        cin >> months[counter].rent;
+    // Outputting the values for the haciendaTwo HouseholdBudget object.
+    cout << "Rent Bill for the Month: " << haciendaTwo.getRentBill() << endl;
+    cout << "Water Bill for the Month: " << haciendaTwo.getWaterBill() << endl;
+    cout << "Garbage Bill for the Month: " << haciendaTwo.getGarbageBill() << endl;
+    cout << "Total Bills for the Month: " << haciendaTwo.getTotal() << endl << endl;
 
-        cout << "\nEnter the amount of the gas bill due for month " << (counter + 1) << ": ";
-        cin >> months[counter].gas;
+    // Using mutator functions to assign values to the cribThree object's various members.
+    cribThree.setRentBill(2500);
+    cribThree.setWaterBill(195.56);
+    cribThree.setGarbageBill(98);
 
-        cout << "\nEnter the amount of the water bill due for month " << (counter + 1) << ": ";
-        cin >> months[counter].water;
-
-        cout << "\nEnter the amount of the garbage bill due for month " << (counter + 1) << ": ";
-        cin >> months[counter].garbage;
-
-        cout << "\nEnter the amount of charitable donations for month " << (counter + 1) << ": ";
-        cin >> months[counter].donation;
-        cout << endl;
-
-        // TOTALS ACCUMULATION
-        rentTotalAccumulator += months[counter].rent;
-        gasTotalAccumulator += months[counter].gas;
-        waterTotalAccumulator += months[counter].water;
-        garbageTotalAccumulator += months[counter].garbage;
-        grandTotalAccumulator += months[counter].rent + months[counter].gas
-            + months[counter].water + months[counter].garbage;
-    }  // End of for loop used for gathering user input.
-
-    // Printing out the summary information to the user.
-    cout << fixed << showpoint << setprecision(2);
-    cout << "\n\nGrand total for all " << NUMBER_OF_MONTHS << " months: $" << grandTotalAccumulator;
-    cout << "\nAverage rent cost: $" << (static_cast<double>(rentTotalAccumulator) / NUMBER_OF_MONTHS);
-    cout << "\nAverage gas cost: $" << (gasTotalAccumulator / NUMBER_OF_MONTHS);
-    cout << "\nAverage water cost: $" << (waterTotalAccumulator / NUMBER_OF_MONTHS);
-    cout << "\nAverage garbage cost: $" << (static_cast<double>(garbageTotalAccumulator) / NUMBER_OF_MONTHS);
-    cout << "\n\nYour charitable donations aren't totaled here: that's not why we give! :)\n\n";
+    // Outputting the values for the cribThree HouseholdBudget object.
+    cout << "Rent Bill for the Month: " << cribThree.getRentBill() << endl;
+    cout << "Water Bill for the Month: " << cribThree.getWaterBill() << endl;
+    cout << "Garbage Bill for the Month: " << cribThree.getGarbageBill() << endl;
+    cout << "Total Bills for the Month: " << cribThree.getTotal() << endl << endl;
 
     return 0;
-} // End of main method
+}  // End of main method.
