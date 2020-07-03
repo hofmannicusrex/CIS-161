@@ -5,6 +5,8 @@
 	and mutators.
 */
 #pragma once
+#ifndef HOUSEHOLDBUDGET_H
+#define HOUSEHOLDBUDGET_H
 
 #include <iostream>
 using namespace std;
@@ -96,3 +98,5 @@ double HouseholdBudget::getTotal() const
 {
 	return rent + water + garbage;
 }
+
+#endif
