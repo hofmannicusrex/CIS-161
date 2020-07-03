@@ -17,7 +17,8 @@ private:
     int sold;
     int bluebook;
 public:
-        Vehicle();
+        Vehicle();                 // Constructor
+        ~Vehicle();                // Destructor
     void setID(string);
     void setSold(int);
     void setBluebook(int);
@@ -38,6 +39,11 @@ Vehicle::Vehicle()
     ID = "House";
     sold = 0;
     bluebook = 0;
+}
+
+Vehicle::~Vehicle()
+{
+    //cout << "Inside the destructor for the Vehicle class.";
 }
 
 /*
