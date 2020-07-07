@@ -91,3 +91,11 @@ int main()
 	
 	return 0;
 }  // End of main method.
+
+/*
+				TEST DATA
+		USER INPUT			OUTPUT
+		1					January 1
+		32					February 1
+		365					December 31
+*/
