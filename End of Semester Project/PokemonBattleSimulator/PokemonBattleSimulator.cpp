@@ -1,6 +1,8 @@
 /*  PokemonBattleSimulator.cpp || Nick Hofmann 7/12/2020
     nickhofmann1989@hotmail.com | nohofmann@dmacc.edu
 
+    Last Updated: 7/14/2020
+
     This program will simulate a Pokemon battle.
 
 */
@@ -10,13 +12,15 @@
 using namespace std;
 
 void determineAttackOrder(Pokemon, Pokemon);
-bool isBattleOver();
+void determineTypeAdvantage(Pokemon, Pokemon);
+//bool isBattleOver();  // MIGHT NOT BE NEEDED
 
 int main()
 {
     // VARIABLE DECLARATIONS
     const int MAX_LVL = 100;
     int userAttackChoice;
+    int battleTurnCounter = 0;
     string normal =    "Normal";
     string fire =      "Fire";
     string water =     "Water";
@@ -34,17 +38,20 @@ int main()
     string dragon =    "Dragon";
     string emptyType = "NONE";
 
+    /*
     // TESTING CREATING POKEMON OBJECTS IN AN ARRAY
     const Pokemon pokemonDatabase[3] = { 
-            Pokemon("Bulbasaur", MAX_LVL, 293, 188, grass, poison),
-            Pokemon("Ivysaur", MAX_LVL, 323, 218, grass, poison),
-            Pokemon("Venusaur", MAX_LVL, 363, 258, grass, poison)
+                Pokemon("Bulbasaur", MAX_LVL, 293, 188, grass, poison, "Solar Beam", "Tackle"),
+                Pokemon("Ivysaur", MAX_LVL, 323, 218, grass, poison),
+                Pokemon("Venusaur", MAX_LVL, 363, 258, grass, poison)
                                          };
+    */
+
     // POKEMON "DATABASE"         |||| CAN I PUT THESE ALL IN AN ARRAY TO BE USED FOR RANDOMIZATION???
-    //                           "NAME"      LVL     HP  SPD  Type1  Type2
-    Pokemon bulbasaur =     { "Bulbasaur", MAX_LVL, 293, 188, grass, poison };
-    Pokemon ivysaur =       { "Ivysaur", MAX_LVL, 323, 218, grass, poison };
-    Pokemon venusaur =      { "Venusaur", MAX_LVL, 363, 258, grass, poison };
+    //                           "NAME"      LVL     HP  SPD  Type1  Type2     Attack1       Attack2
+    Pokemon bulbasaur =     { "Bulbasaur", MAX_LVL, 293, 188, grass, poison, "Razor Leaf", "Vine Whip" };
+    Pokemon ivysaur =       { "Ivysaur", MAX_LVL, 323, 218, grass, poison, "Razor Leaf", "Tackle" };
+    Pokemon venusaur =      { "Venusaur", MAX_LVL, 363, 258, grass, poison, "Vine Whip", "Solar Beam" };
     /*
     Pokemon charmander =    { "Charmander", MAX_LVL, 281, 228, fire, emptyType };
     Pokemon charmeleon =    { "Charmeleon", MAX_LVL, 319, 258, fire, emptyType };
@@ -197,8 +204,6 @@ int main()
     // POKEMON "DATABASE"
     */
     // { "Bulbasaur", MAX_LVL, 293, 188, grass, poison }
-    Pokemon allyPokemon = bulbasaur;
-    Pokemon enemyPokemon = venusaur;
 
     /*
     cout << bulbasaur.determineTypeAdvantage() << "\n\n";
@@ -217,53 +222,66 @@ int main()
     determineAttackOrder(dragonite, kabutops);
     determineAttackOrder(allyPokemon, enemyPokemon);
     */
+    
+    Pokemon allyPokemon = bulbasaur;
+    Pokemon enemyPokemon = venusaur;
 
-    /*
-    do
-    {
-        chansey.takeDamage();
-    } while (chansey.getPokemonHitPoints() > 0); // while(allyPokemon.getPokemonHitPoints() > 0)
-    */
-
-
-    cout << "BEGIN BATTLE:\n\n";
+    cout << "BEGIN PROTOTYPE BATTLE:\n\n";
 
     do
     {
+        battleTurnCounter++;  // COUNTS THE NUMBER OF TURNS THAT HAVE TAKEN PLACE
         int userAttackChoice;
         int attackDamage = 0;
 
+        // THIS HAPPENS DURING EVERY ITERATION OF THE WHILE LOOP
+        cout << "\n   YOUR POKEMON";
+        cout << "\n\t" << allyPokemon.getPokemonName()
+             << "\n\tLVL: " << allyPokemon.getPokemonLevel()
+             << "\n\tHP: " << allyPokemon.getPokemonHitPoints() << "\n";
+
+        cout << "\n\t\t   OPPONENT POKEMON";
+        cout << "\n\t\t\t" << enemyPokemon.getPokemonName()
+             << "\n\t\t\tLVL: " << enemyPokemon.getPokemonLevel()
+             << "\n\t\t\tHP: " << enemyPokemon.getPokemonHitPoints() << "\n";
+
         cout << "\n  0-----------------------------------0";
-        cout << "\n  | 1)          Heavy Blow            |";
-        cout << "\n  | 2)         Light Attack           |";
-        cout << "\n  | 3)         Medium Attack          |";
-        cout << "\n  | 4)       Ultimate Ability         |";
+        cout << "\n  | 1)          " << allyPokemon.getAttackMoveOne() << "            |";
+        cout << "\n  | 2)          " << allyPokemon.getAttackMoveTwo() << "             |";
+        //cout << "\n  | 3)         Medium Attack          |";
+        //cout << "\n  | 4)       Ultimate Ability         |";
         cout << "\n  0-----------------------------------0";
         cout << "\n\tChoose your attack move: ";
         cin >> userAttackChoice;
 
         switch (userAttackChoice)
         {
-        case 1: cout << "\tYou chose 'Heavy Blow'";
-            attackDamage = 43;
+        case 1: attackDamage = 55;  // Setting attack move damage.
+            cout << "\n" << allyPokemon.getPokemonName() << " used " << allyPokemon.getAttackMoveOne() << "!\n";
+            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took " << attackDamage << " damage.\n\n";
+            system("pause");
             break;
-        case 2: cout << "\tYou chose 'Light Attack'";
-            attackDamage = 22;
+        case 2: attackDamage = 35;// Setting attack move damage.
+            cout << "\n" << allyPokemon.getPokemonName() << " used "
+                 << allyPokemon.getAttackMoveTwo() << "!\n";
+            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took " << attackDamage << " damage.\n\n";
+            system("pause");
             break;
-        case 3: cout << "\tYou chose 'Medium Attack'";
+        case 3: //cout << "\tYou chose 'Medium Attack'";
             attackDamage = 34;
             break;
-        case 4: cout << "\tYou chose 'Ultimate Ability'";
+        case 4: //cout << "\tYou chose 'Ultimate Ability'";
             attackDamage = 71;
             break;
         default:
             break;
-        }
+        }  // END OF SWITCH STATEMENT THAT CONTROLS USER ATTACK CHOICE
 
         cout << "\n\n    ";
-        //system("pause");
 
-        allyPokemon.takeDamage(attackDamage);
+        //allyPokemon.takeDamage(attackDamage);
+        
+        // THIS IS WHERE THE ENEMY POKEMON TAKES DAMAGE
         enemyPokemon.takeDamage(attackDamage);
         cout << endl;
 
@@ -271,15 +289,14 @@ int main()
 
         if ((allyPokemon.getPokemonHitPoints() < 0) || (enemyPokemon.getPokemonHitPoints() < 0))
         {
-            cout << "\n\nBREAKING OUT OF DO WHILE LOOP\n\n";
+            //cout << "\n\nBREAKING OUT OF DO WHILE LOOP\n\n"; // MESSAGE USED FOR CONFIRMING PROGRAM FUNCTIONALITY
             break;
         }
 
-        cout << "\nAlly Pokemon Health: " << allyPokemon.getPokemonHitPoints();
-        cout << "\nEnemy Pokemon Health: " << enemyPokemon.getPokemonHitPoints();
-
     } while ((allyPokemon.getPokemonHitPoints() > 0) || (enemyPokemon.getPokemonHitPoints() > 0));
+    // END OF WHILE LOOP THAT CONTROLS BATTLE AND/OR MOVE SELECTION
 
+    // This is an if statement to determine which Pokemon will faint first.
     if (allyPokemon.getPokemonHitPoints() > enemyPokemon.getPokemonHitPoints())
     {
         cout << "\n\n" << allyPokemon.getPokemonName() << " finished with more HP and is the winner!\n\n\n";
@@ -293,10 +310,15 @@ int main()
         cout << "\n\n" << allyPokemon.getPokemonName() << " and " << enemyPokemon.getPokemonName()
              << " finished with the same HP...it's a draw!\n\n\n";
     }
-    cout << "\nAlly Pokemon Health: " << allyPokemon.getPokemonHitPoints();
-    cout << "\nEnemy Pokemon Health: " << enemyPokemon.getPokemonHitPoints();
 
+    /*
+    cout << "\n" << allyPokemon.getPokemonName() << "\nLVL: " << allyPokemon.getPokemonLevel()
+        << "\nHP: " << allyPokemon.getPokemonHitPoints() << "\n";
+    cout << "\n" << enemyPokemon.getPokemonName() << "\nLVL: " << enemyPokemon.getPokemonLevel()
+        << "\nHP: " << enemyPokemon.getPokemonHitPoints() << "\n";
+    */
 
+    //cout << "\n\n\nThe battle lasted " << battleTurnCounter << " turns.\n\n"; // TURN COUNTER
 
     return 0;
 }  // End of main method.
@@ -320,6 +342,11 @@ void determineAttackOrder(Pokemon allyPokemon, Pokemon opposingPokemon)
     {
         cout << "\n" << opposingPokemon.getPokemonName() << " has the same speed as " << allyPokemon.getPokemonName();
     }
+}
+
+void determineTypeAdvantage(Pokemon allyPokemon, Pokemon opposingPokemon)
+{
+    // WRITE LOGIC FOR COMPARING allyPokemon.getAttackMoveOneType - or something
 }
 
 void allyPokemonFaint()

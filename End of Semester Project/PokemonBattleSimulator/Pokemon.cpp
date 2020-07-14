@@ -14,6 +14,18 @@ Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string
 	pokemonSpeed = pokeSpeed;
 	elementalTypeOne = typeOne;
 	elementalTypeTwo = typeTwo;
+}  // THIS ONE IS PROBABLY USELESS NOW SINCE I'LL BE TRYING TO USE THE CONSTRUCTOR BELOW ONLY
+
+Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string typeOne, string typeTwo, string attackOne, string attackTwo)
+{  // This will be used to create all of the Pokemon in my game.
+	pokemonName = pokeName;
+	pokemonLevel = pokeLVL;
+	pokemonHitPoints = pokeHP;
+	pokemonSpeed = pokeSpeed;
+	elementalTypeOne = typeOne;
+	elementalTypeTwo = typeTwo;
+	attackMoveOne = attackOne;
+	attackMoveTwo = attackTwo;
 }
 
 ////////////////////////////////
@@ -44,6 +56,12 @@ void Pokemon::setElementalTypeOne(string typeOne)
 void Pokemon::setElementalTypeTwo(string typeTwo)
 { elementalTypeTwo = typeTwo; }
 
+void Pokemon::setAttackMoveOne(string attackOne)
+{ attackMoveOne = attackOne; }
+
+void Pokemon::setAttackMoveTwo(string attackTwo)
+{ attackMoveTwo = attackTwo; }
+
 /////////////////////////
 ////    ACCESSORS    ////
 /////////////////////////
@@ -65,13 +83,20 @@ string Pokemon::getElementalTypeOne() const
 string Pokemon::getElementalTypeTwo() const
 { return elementalTypeTwo; }
 
+string Pokemon::getAttackMoveOne() const
+{ return attackMoveOne; }
+
+string Pokemon::getAttackMoveTwo() const
+{ return attackMoveTwo; }
+
 //////////////////////////////////
 ////     MEMBER FUNCTIONS     ////
 //////////////////////////////////
 
+/*  //	I DON'T THINK I NEED THIS TO BE A 'POKEMON' MEMBER FUNCTION...MOVED IT TO MAIN .CPP FILE
 string Pokemon::determineTypeAdvantage()
 {
-	/* ALL POKEMON ELEMENTAL TYPES
+	 ALL POKEMON ELEMENTAL TYPES
 	fire
 	grass
 	ground
@@ -87,10 +112,10 @@ string Pokemon::determineTypeAdvantage()
 	rock
 	ice
 	dragon
-	*/
 
 	return "This is the outcome returned by determineTypeAdvantage()";
 }
+*/
 
 int Pokemon::takeDamage(int attackStrength)  // I THINK THIS WOULD HAVE TO TAKE A PARAMETER FOR AN ATTACK MOVES POWER
 {
@@ -101,23 +126,7 @@ int Pokemon::takeDamage(int attackStrength)  // I THINK THIS WOULD HAVE TO TAKE 
 
 	return pokemonHitPoints;
 }
-/*
-void determineAttackOrder(Pokemon allyPokemon, Pokemon opposingPokemon)
-{
-	if (allyPokemon.getPokemonSpeed() > opposingPokemon.getPokemonSpeed())
-	{
-		cout << "\n" << allyPokemon.getPokemonName() << " is faster than " << opposingPokemon.getPokemonName();
-	}
-	else if (opposingPokemon.getPokemonSpeed() > allyPokemon.getPokemonSpeed())
-	{
-		cout << "\n" << opposingPokemon.getPokemonName() << " is faster than " << allyPokemon.getPokemonName();
-	}
-	else if (allyPokemon.getPokemonSpeed() == opposingPokemon.getPokemonSpeed())
-	{
-		cout << "\n" << opposingPokemon.getPokemonName() << " has the same speed as " << allyPokemon.getPokemonName();
-	}
-}
-*/
+
 void Pokemon::friendlyPokemonFaint()
 {
 	cout << "\n" << pokemonName << " has fainted.\n";

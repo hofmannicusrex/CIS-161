@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 using namespace std;
+
 class Pokemon
 {
 private:
@@ -10,9 +11,15 @@ private:
 	int pokemonSpeed;
 	string elementalTypeOne;
 	string elementalTypeTwo;
-	//attackOne, attackTwo, attackThree, attackFour  ????
+	string attackMoveOne;
+	string attackMoveTwo;
+	//string attackMoveThree;
+	//string attackMoveFour;
+	// MAYBE USE STRUCTS FOR CONSTRUCTING EACH MOVE SINCE IT WILL NEED A STRING
+	// NAME, ELEMENTAL TYPE, ETC. ????
 public:
 	Pokemon(string, int, int, int, string, string);  // CONSTRUCTOR
+	Pokemon(string, int, int, int, string, string, string, string);  // CONSTRUCTOR W/ MOVES
 	~Pokemon();                                      // DESTRUCTOR
 	// MUTATORS
 	void setPokemonName(string);
@@ -21,6 +28,10 @@ public:
 	void setPokemonSpeed(int);
 	void setElementalTypeOne(string);
 	void setElementalTypeTwo(string);
+	void setAttackMoveOne(string);
+	void setAttackMoveTwo(string);
+	//void setAttackMoveThree(string);
+	//void setAttackMoveFour(string);
 	// ACCESSORS
 	string getPokemonName() const;
 	int getPokemonLevel() const;
@@ -28,15 +39,17 @@ public:
 	int getPokemonSpeed() const;
 	string getElementalTypeOne() const;
 	string getElementalTypeTwo() const;
+	string getAttackMoveOne() const;
+	string getAttackMoveTwo() const;
+	//string getAttackMoveThree() const;
+	//string getAttakMoveFour() const;
 
 	// MEMBER FUNCTIONS
-	virtual string determineTypeAdvantage(); // NOT SURE WHAT THE RETURN TYPE SHOULD BE YET...STRING?
-	void friendlyPokemonFaint();  // Determines when/if your Pokemon faints
-	void opposingPokemonFaint();  // Determines when/if the opposing Pokemon faints
+	//virtual string determineTypeAdvantage(); // NOT SURE WHAT THE RETURN TYPE SHOULD BE YET...STRING?
+	void friendlyPokemonFaint();  // Determines when/if your Pokemon faints         // MOVE TO MAIN .CPP FILE PROBABLY
+	void opposingPokemonFaint();  // Determines when/if the opposing Pokemon faints // MOVE TO MAIN .CPP FILE PROBABLY
 	int takeDamage(int);
-	//void determineAttackOrder(Pokemon, Pokemon); FUNCTION WAS MOVED TO THE MAIN PROGRAM FILE
 	/*
-	string determineAttackOrder() const; // NOT SURE WHAT THE RETURN TYPE SHOULD BE YET...BOOLEAN?
 	int decreaseHitPoints();
 	int increaseHitPoints(); // THIS IS JUST IN CASE A MOVE ALSO HEALS THE POKEMON USING IT (E.G. MEGA DRAIN)
 	int useAttackMove();

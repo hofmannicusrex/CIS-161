@@ -1,3 +1,3 @@
 ﻿  PokemonBattleSimulator.cpp
-C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\End of Semester Project\PokemonBattleSimulator\PokemonBattleSimulator.cpp(19,9): warning C4101: 'userAttackChoice': unreferenced local variable
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\End of Semester Project\PokemonBattleSimulator\PokemonBattleSimulator.cpp(22,9): warning C4101: 'userAttackChoice': unreferenced local variable
   PokemonBattleSimulator.vcxproj -> C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\End of Semester Project\PokemonBattleSimulator\Debug\PokemonBattleSimulator.exe
