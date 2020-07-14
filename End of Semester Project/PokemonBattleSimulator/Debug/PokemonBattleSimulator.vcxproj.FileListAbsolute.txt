@@ -1,0 +1,2 @@
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\End of Semester Project\PokemonBattleSimulator\Debug\PokemonBattleSimulator.exe
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\End of Semester Project\PokemonBattleSimulator\Debug\PokemonBattleSimulator.pdb
