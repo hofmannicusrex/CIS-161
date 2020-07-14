@@ -92,10 +92,12 @@ string Pokemon::determineTypeAdvantage()
 	return "This is the outcome returned by determineTypeAdvantage()";
 }
 
-int Pokemon::takeDamage()  // I THINK THIS WOULD HAVE TO TAKE A PARAMETER FOR AN ATTACK MOVES POWER
+int Pokemon::takeDamage(int attackStrength)  // I THINK THIS WOULD HAVE TO TAKE A PARAMETER FOR AN ATTACK MOVES POWER
 {
-	pokemonHitPoints -= 31;
-	cout << "\n" << pokemonName << " current HP: " << pokemonHitPoints;
+	int attackPower = attackStrength;
+
+	pokemonHitPoints -= attackPower;
+	cout << "\n" << pokemonName << "'s current HP: " << pokemonHitPoints;
 
 	return pokemonHitPoints;
 }

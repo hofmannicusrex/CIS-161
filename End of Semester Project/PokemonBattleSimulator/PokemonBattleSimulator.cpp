@@ -1,19 +1,22 @@
 /*  PokemonBattleSimulator.cpp || Nick Hofmann 7/12/2020
     nickhofmann1989@hotmail.com | nohofmann@dmacc.edu
 
-    This program will .
+    This program will simulate a Pokemon battle.
 
 */
-#include <iostream>
 #include "Pokemon.h"
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 void determineAttackOrder(Pokemon, Pokemon);
+bool isBattleOver();
 
 int main()
 {
     // VARIABLE DECLARATIONS
     const int MAX_LVL = 100;
+    int userAttackChoice;
     string normal =    "Normal";
     string fire =      "Fire";
     string water =     "Water";
@@ -42,6 +45,7 @@ int main()
     Pokemon bulbasaur =     { "Bulbasaur", MAX_LVL, 293, 188, grass, poison };
     Pokemon ivysaur =       { "Ivysaur", MAX_LVL, 323, 218, grass, poison };
     Pokemon venusaur =      { "Venusaur", MAX_LVL, 363, 258, grass, poison };
+    /*
     Pokemon charmander =    { "Charmander", MAX_LVL, 281, 228, fire, emptyType };
     Pokemon charmeleon =    { "Charmeleon", MAX_LVL, 319, 258, fire, emptyType };
     Pokemon charizard =     { "Charizard", MAX_LVL, 359, 298, fire, flying };
@@ -191,9 +195,12 @@ int main()
     Pokemon mewtwo =        { "Mewtwo", MAX_LVL, 415, 358, psychic, emptyType };
     Pokemon mew =           { "Mew", MAX_LVL, 403, 298, psychic, emptyType };
     // POKEMON "DATABASE"
-
+    */
     // { "Bulbasaur", MAX_LVL, 293, 188, grass, poison }
+    Pokemon allyPokemon = bulbasaur;
+    Pokemon enemyPokemon = venusaur;
 
+    /*
     cout << bulbasaur.determineTypeAdvantage() << "\n\n";
     bulbasaur.friendlyPokemonFaint();
     mewtwo.opposingPokemonFaint();
@@ -201,8 +208,95 @@ int main()
     bulbasaur.takeDamage();
     bulbasaur.takeDamage();
     bulbasaur.takeDamage();
+    */
 
+    // system("cls"); // CLEARS THE SCREEN OF TEXT
+    
+    /*
     determineAttackOrder(bulbasaur, mew);
+    determineAttackOrder(dragonite, kabutops);
+    determineAttackOrder(allyPokemon, enemyPokemon);
+    */
+
+    /*
+    do
+    {
+        chansey.takeDamage();
+    } while (chansey.getPokemonHitPoints() > 0); // while(allyPokemon.getPokemonHitPoints() > 0)
+    */
+
+
+    cout << "BEGIN BATTLE:\n\n";
+
+    do
+    {
+        int userAttackChoice;
+        int attackDamage = 0;
+
+        cout << "\n  0-----------------------------------0";
+        cout << "\n  | 1)          Heavy Blow            |";
+        cout << "\n  | 2)         Light Attack           |";
+        cout << "\n  | 3)         Medium Attack          |";
+        cout << "\n  | 4)       Ultimate Ability         |";
+        cout << "\n  0-----------------------------------0";
+        cout << "\n\tChoose your attack move: ";
+        cin >> userAttackChoice;
+
+        switch (userAttackChoice)
+        {
+        case 1: cout << "\tYou chose 'Heavy Blow'";
+            attackDamage = 43;
+            break;
+        case 2: cout << "\tYou chose 'Light Attack'";
+            attackDamage = 22;
+            break;
+        case 3: cout << "\tYou chose 'Medium Attack'";
+            attackDamage = 34;
+            break;
+        case 4: cout << "\tYou chose 'Ultimate Ability'";
+            attackDamage = 71;
+            break;
+        default:
+            break;
+        }
+
+        cout << "\n\n    ";
+        //system("pause");
+
+        allyPokemon.takeDamage(attackDamage);
+        enemyPokemon.takeDamage(attackDamage);
+        cout << endl;
+
+        system("cls");
+
+        if ((allyPokemon.getPokemonHitPoints() < 0) || (enemyPokemon.getPokemonHitPoints() < 0))
+        {
+            cout << "\n\nBREAKING OUT OF DO WHILE LOOP\n\n";
+            break;
+        }
+
+        cout << "\nAlly Pokemon Health: " << allyPokemon.getPokemonHitPoints();
+        cout << "\nEnemy Pokemon Health: " << enemyPokemon.getPokemonHitPoints();
+
+    } while ((allyPokemon.getPokemonHitPoints() > 0) || (enemyPokemon.getPokemonHitPoints() > 0));
+
+    if (allyPokemon.getPokemonHitPoints() > enemyPokemon.getPokemonHitPoints())
+    {
+        cout << "\n\n" << allyPokemon.getPokemonName() << " finished with more HP and is the winner!\n\n\n";
+    }
+    else if (enemyPokemon.getPokemonHitPoints() > allyPokemon.getPokemonHitPoints())
+    {
+        cout << "\n\n" << enemyPokemon.getPokemonName() << " finished with more HP and is the winner!\n\n\n";
+    }
+    else
+    {
+        cout << "\n\n" << allyPokemon.getPokemonName() << " and " << enemyPokemon.getPokemonName()
+             << " finished with the same HP...it's a draw!\n\n\n";
+    }
+    cout << "\nAlly Pokemon Health: " << allyPokemon.getPokemonHitPoints();
+    cout << "\nEnemy Pokemon Health: " << enemyPokemon.getPokemonHitPoints();
+
+
 
     return 0;
 }  // End of main method.
@@ -210,6 +304,8 @@ int main()
 /////////////////////////
 ////    FUNCTIONS    ////
 /////////////////////////
+
+
 void determineAttackOrder(Pokemon allyPokemon, Pokemon opposingPokemon)
 {
     if (allyPokemon.getPokemonSpeed() > opposingPokemon.getPokemonSpeed())
@@ -220,8 +316,23 @@ void determineAttackOrder(Pokemon allyPokemon, Pokemon opposingPokemon)
     {
         cout << "\n" << opposingPokemon.getPokemonName() << " is faster than " << allyPokemon.getPokemonName();
     }
-    else if (allyPokemon.getPokemonSpeed() == opposingPokemon.getPokemonSpeed())
+    else
     {
         cout << "\n" << opposingPokemon.getPokemonName() << " has the same speed as " << allyPokemon.getPokemonName();
     }
+}
+
+void allyPokemonFaint()
+{
+
+}
+
+void enemyPokemonFaint()
+{
+
+}
+
+bool isBattleOver(Pokemon allyPokemon, Pokemon opposingPokemon)
+{
+    return true;
 }

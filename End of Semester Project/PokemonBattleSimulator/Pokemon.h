@@ -33,7 +33,7 @@ public:
 	virtual string determineTypeAdvantage(); // NOT SURE WHAT THE RETURN TYPE SHOULD BE YET...STRING?
 	void friendlyPokemonFaint();  // Determines when/if your Pokemon faints
 	void opposingPokemonFaint();  // Determines when/if the opposing Pokemon faints
-	int takeDamage();
+	int takeDamage(int);
 	//void determineAttackOrder(Pokemon, Pokemon); FUNCTION WAS MOVED TO THE MAIN PROGRAM FILE
 	/*
 	string determineAttackOrder() const; // NOT SURE WHAT THE RETURN TYPE SHOULD BE YET...BOOLEAN?
