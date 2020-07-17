@@ -16,7 +16,8 @@ Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string
 	elementalTypeTwo = typeTwo;
 }  // THIS ONE IS PROBABLY USELESS NOW SINCE I'LL BE TRYING TO USE THE CONSTRUCTOR BELOW ONLY
 
-Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string typeOne, string typeTwo, string attackOne, string attackTwo)
+Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string typeOne, string typeTwo,
+				 string attackOne, string attackTwo, string attackThree, string attackFour)
 {  // This will be used to create all of the Pokemon in my game.
 	pokemonName = pokeName;
 	pokemonLevel = pokeLVL;
@@ -26,6 +27,8 @@ Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string
 	elementalTypeTwo = typeTwo;
 	attackMoveOne = attackOne;
 	attackMoveTwo = attackTwo;
+	attackMoveThree = attackThree;
+	attackMoveFour = attackFour;
 }
 
 ////////////////////////////////
@@ -39,28 +42,34 @@ Pokemon::~Pokemon()
 ////    MUTATORS    ////
 ////////////////////////
 void Pokemon::setPokemonName(string pokeName)
-{ pokemonName = pokeName; }
+{ this->pokemonName = pokeName; }
 
 void Pokemon::setPokemonLevel(int pokeLVL)
-{ pokemonLevel = pokeLVL; }
+{ this->pokemonLevel = pokeLVL; }
 
 void Pokemon::setPokemonHitPoints(int pokeHP)
-{ pokemonHitPoints = pokeHP; }
+{ this->pokemonHitPoints = pokeHP; }
 
 void Pokemon::setPokemonSpeed(int pokeSpeed)
-{ pokemonSpeed = pokeSpeed; }
+{ this->pokemonSpeed = pokeSpeed; }
 
 void Pokemon::setElementalTypeOne(string typeOne)
-{ elementalTypeOne = typeOne; }
+{ this->elementalTypeOne = typeOne; }
 
 void Pokemon::setElementalTypeTwo(string typeTwo)
-{ elementalTypeTwo = typeTwo; }
+{ this->elementalTypeTwo = typeTwo; }
 
 void Pokemon::setAttackMoveOne(string attackOne)
-{ attackMoveOne = attackOne; }
+{ this->attackMoveOne = attackOne; }
 
 void Pokemon::setAttackMoveTwo(string attackTwo)
-{ attackMoveTwo = attackTwo; }
+{ this->attackMoveTwo = attackTwo; }
+
+void Pokemon::setAttackMoveThree(string attackThree)
+{ this->attackMoveThree = attackThree; }
+
+void Pokemon::setAttackMoveFour(string attackFour)
+{ this->attackMoveFour = attackFour; }
 
 /////////////////////////
 ////    ACCESSORS    ////
@@ -88,6 +97,12 @@ string Pokemon::getAttackMoveOne() const
 
 string Pokemon::getAttackMoveTwo() const
 { return attackMoveTwo; }
+
+string Pokemon::getAttackMoveThree() const
+{ return attackMoveThree; }
+
+string Pokemon::getAttackMoveFour() const
+{ return attackMoveFour; }
 
 //////////////////////////////////
 ////     MEMBER FUNCTIONS     ////
@@ -119,10 +134,10 @@ string Pokemon::determineTypeAdvantage()
 
 int Pokemon::takeDamage(int attackStrength)  // I THINK THIS WOULD HAVE TO TAKE A PARAMETER FOR AN ATTACK MOVES POWER
 {
-	int attackPower = attackStrength;
+	int attackPower = attackStrength;  // The power of the attack move being used.
 
 	pokemonHitPoints -= attackPower;
-	cout << "\n" << pokemonName << "'s current HP: " << pokemonHitPoints;
+	//cout << "\n" << pokemonName << "'s current HP: " << pokemonHitPoints;
 
 	return pokemonHitPoints;
 }

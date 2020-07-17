@@ -49,9 +49,9 @@ int main()
 
     // POKEMON "DATABASE"         |||| CAN I PUT THESE ALL IN AN ARRAY TO BE USED FOR RANDOMIZATION???
     //                           "NAME"      LVL     HP  SPD  Type1  Type2     Attack1       Attack2
-    Pokemon bulbasaur =     { "Bulbasaur", MAX_LVL, 293, 188, grass, poison, "Razor Leaf", "Vine Whip" };
-    Pokemon ivysaur =       { "Ivysaur", MAX_LVL, 323, 218, grass, poison, "Razor Leaf", "Tackle" };
-    Pokemon venusaur =      { "Venusaur", MAX_LVL, 363, 258, grass, poison, "Vine Whip", "Solar Beam" };
+    Pokemon bulbasaur =     { "Bulbasaur", MAX_LVL, 293, 188, grass, poison, "Razor Leaf", "Vine Whip", "Body Slam", "Cut" };
+    Pokemon ivysaur =       { "Ivysaur", MAX_LVL, 323, 218, grass, poison, "Mega Drain", "Tackle", "Razor Leaf", "Vine Whip" };
+    Pokemon venusaur =      { "Venusaur", MAX_LVL, 363, 258, grass, poison, "Vine Whip", "Solar Beam", "Body Slam", "Cut" };
     /*
     Pokemon charmander =    { "Charmander", MAX_LVL, 281, 228, fire, emptyType };
     Pokemon charmeleon =    { "Charmeleon", MAX_LVL, 319, 258, fire, emptyType };
@@ -202,7 +202,26 @@ int main()
     Pokemon mewtwo =        { "Mewtwo", MAX_LVL, 415, 358, psychic, emptyType };
     Pokemon mew =           { "Mew", MAX_LVL, 403, 298, psychic, emptyType };
     // POKEMON "DATABASE"
+
+    // ATTACK MOVE "DATABASE"
+
+    /* ======================================================================================================
+       ======================================================================================================
+        
+        DESIGN AND IMPLEMENT A STRUCT FOR ATTACK MOVES AND THEN CONSTRUCT A SET POOL OF ATTACK MOVES, LIKE
+        YOU DID FOR ALL 151 POKEMON.
+
+        Struct attackMove
+        {
+            string attackMoveName;
+            int attackMoveStrength;
+            string attackMoveElementalType;
+        };
+
+        ======================================================================================================
+        ======================================================================================================
     */
+
     // { "Bulbasaur", MAX_LVL, 293, 188, grass, poison }
 
     /*
@@ -226,7 +245,10 @@ int main()
     Pokemon allyPokemon = bulbasaur;
     Pokemon enemyPokemon = venusaur;
 
-    cout << "BEGIN PROTOTYPE BATTLE:\n\n";
+    const int MAX_ALLY_POKEMON_HP = allyPokemon.getPokemonHitPoints();
+    const int MAX_ENEMY_POKEMON_HP = enemyPokemon.getPokemonHitPoints();
+
+    //cout << "BEGIN PROTOTYPE BATTLE:\n\n";
 
     do
     {
@@ -235,43 +257,64 @@ int main()
         int attackDamage = 0;
 
         // THIS HAPPENS DURING EVERY ITERATION OF THE WHILE LOOP
-        cout << "\n   YOUR POKEMON";
-        cout << "\n\t" << allyPokemon.getPokemonName()
-             << "\n\tLVL: " << allyPokemon.getPokemonLevel()
-             << "\n\tHP: " << allyPokemon.getPokemonHitPoints() << "\n";
+        cout << "\n   OPPONENT POKEMON";
+        cout << "\n\t" << enemyPokemon.getPokemonName()
+             << "\n\tLVL: " << enemyPokemon.getPokemonLevel()
+             << "\n\tHP: " << enemyPokemon.getPokemonHitPoints() << "/" << MAX_ENEMY_POKEMON_HP << "\n";
 
-        cout << "\n\t\t   OPPONENT POKEMON";
-        cout << "\n\t\t\t" << enemyPokemon.getPokemonName()
-             << "\n\t\t\tLVL: " << enemyPokemon.getPokemonLevel()
-             << "\n\t\t\tHP: " << enemyPokemon.getPokemonHitPoints() << "\n";
+        cout << "\n\t\t   YOUR POKEMON";
+        cout << "\n\t\t\t" << allyPokemon.getPokemonName()
+             << "\n\t\t\tLVL: " << allyPokemon.getPokemonLevel()
+             << "\n\t\t\tHP: " << allyPokemon.getPokemonHitPoints() << "/" << MAX_ALLY_POKEMON_HP << "\n";
 
         cout << "\n  0-----------------------------------0";
         cout << "\n  | 1)          " << allyPokemon.getAttackMoveOne() << "            |";
         cout << "\n  | 2)          " << allyPokemon.getAttackMoveTwo() << "             |";
-        //cout << "\n  | 3)         Medium Attack          |";
-        //cout << "\n  | 4)       Ultimate Ability         |";
+        cout << "\n  | 3)          " << allyPokemon.getAttackMoveThree() << "             |";
+        cout << "\n  | 4)          " << allyPokemon.getAttackMoveFour() << "                   |";
         cout << "\n  0-----------------------------------0";
-        cout << "\n\tChoose your attack move: ";
-        cin >> userAttackChoice;
+        do
+        {
+            cout << "\n\tChoose your attack move: ";
+            cin >> userAttackChoice;
+            //static_cast<int>(userAttackChoice); // BELIEVE THIS IS UNNECESSARY
+        } while ((userAttackChoice != 1) && (userAttackChoice != 2) && (userAttackChoice != 3) && (userAttackChoice != 4)); // MAYBE ALTER???
+        //cout << "\n\tChoose your attack move: ";
+        //cin >> userAttackChoice;
 
         switch (userAttackChoice)
         {
         case 1: attackDamage = 55;  // Setting attack move damage.
-            cout << "\n" << allyPokemon.getPokemonName() << " used " << allyPokemon.getAttackMoveOne() << "!\n";
-            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took " << attackDamage << " damage.\n\n";
+            cout << "\n" << allyPokemon.getPokemonName() << " used "
+                 << allyPokemon.getAttackMoveOne() << "!\n";
+
+            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took "
+                 << attackDamage << " damage.\n\n";
             system("pause");
             break;
         case 2: attackDamage = 35;// Setting attack move damage.
             cout << "\n" << allyPokemon.getPokemonName() << " used "
                  << allyPokemon.getAttackMoveTwo() << "!\n";
-            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took " << attackDamage << " damage.\n\n";
+
+            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took "
+                 << attackDamage << " damage.\n\n";
             system("pause");
             break;
-        case 3: //cout << "\tYou chose 'Medium Attack'";
-            attackDamage = 34;
+        case 3: attackDamage = 85;// Setting attack move damage.
+            cout << "\n" << allyPokemon.getPokemonName() << " used "
+                 << allyPokemon.getAttackMoveTwo() << "!\n";
+
+            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took "
+                 << attackDamage << " damage.\n\n";
+            system("pause");
             break;
-        case 4: //cout << "\tYou chose 'Ultimate Ability'";
-            attackDamage = 71;
+        case 4: attackDamage = 50;// Setting attack move damage.
+            cout << "\n" << allyPokemon.getPokemonName() << " used "
+                 << allyPokemon.getAttackMoveTwo() << "!\n";
+
+            cout << "\nThe opposing " << enemyPokemon.getPokemonName() << " took "
+                 << attackDamage << " damage.\n\n";
+            system("pause");
             break;
         default:
             break;
@@ -294,7 +337,9 @@ int main()
         }
 
     } while ((allyPokemon.getPokemonHitPoints() > 0) || (enemyPokemon.getPokemonHitPoints() > 0));
-    // END OF WHILE LOOP THAT CONTROLS BATTLE AND/OR MOVE SELECTION
+    //=======================================================================================
+    //============ END OF WHILE LOOP THAT CONTROLS BATTLE AND/OR MOVE SELECTION  ============
+    //=======================================================================================
 
     // This is an if statement to determine which Pokemon will faint first.
     if (allyPokemon.getPokemonHitPoints() > enemyPokemon.getPokemonHitPoints())
@@ -313,9 +358,9 @@ int main()
 
     /*
     cout << "\n" << allyPokemon.getPokemonName() << "\nLVL: " << allyPokemon.getPokemonLevel()
-        << "\nHP: " << allyPokemon.getPokemonHitPoints() << "\n";
+         << "\nHP: " << allyPokemon.getPokemonHitPoints() << "\n";
     cout << "\n" << enemyPokemon.getPokemonName() << "\nLVL: " << enemyPokemon.getPokemonLevel()
-        << "\nHP: " << enemyPokemon.getPokemonHitPoints() << "\n";
+         << "\nHP: " << enemyPokemon.getPokemonHitPoints() << "\n";
     */
 
     //cout << "\n\n\nThe battle lasted " << battleTurnCounter << " turns.\n\n"; // TURN COUNTER
