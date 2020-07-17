@@ -1,0 +1,8 @@
+﻿  ClassExceptionHandlingAssignment.cpp
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\ClassExceptionHandlingAssignment\TestScores.h(7,18): warning C4200: nonstandard extension used: zero-sized array in struct/union
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\ClassExceptionHandlingAssignment\TestScores.h(7,18): message : This member will be ignored by a defaulted constructor or copy/move assignment operator
+  TestScores.cpp
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\ClassExceptionHandlingAssignment\TestScores.h(7,18): warning C4200: nonstandard extension used: zero-sized array in struct/union
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\ClassExceptionHandlingAssignment\TestScores.h(7,18): message : This member will be ignored by a defaulted constructor or copy/move assignment operator
+  Generating Code...
+  ClassExceptionHandlingAssignment.vcxproj -> C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\ClassExceptionHandlingAssignment\Debug\ClassExceptionHandlingAssignment.exe
