@@ -11,15 +11,21 @@ private:
 	int pokemonSpeed;
 	string elementalTypeOne;
 	string elementalTypeTwo;
+	/*
+	struct attackMove
+	{
+		string attackMoveName;
+		int attackMoveStrength;
+		string attackMoveElementalType;
+	};
+	*/
 	string attackMoveOne;
 	string attackMoveTwo;
 	string attackMoveThree;
 	string attackMoveFour;
-	// MAYBE USE STRUCTS FOR CONSTRUCTING EACH MOVE SINCE IT WILL NEED A STRING
-	// NAME, ELEMENTAL TYPE, ETC. ????
 public:
 	Pokemon(string, int, int, int, string, string);  // CONSTRUCTOR
-	Pokemon(string, int, int, int, string, string, string, string, string, string);  // CONSTRUCTOR W/ MOVES
+	Pokemon(string, int, int, int, string, string, string attackMoveOne, string attackMoveTwo, string attackMoveThree, string attackMoveFour);  // CONSTRUCTOR W/ MOVES
 	~Pokemon();                                      // DESTRUCTOR
 	// MUTATORS
 	void setPokemonName(string);

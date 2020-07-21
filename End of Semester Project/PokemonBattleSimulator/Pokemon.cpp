@@ -6,6 +6,7 @@ using namespace std;
 //////////////////////////////////
 ////    CLASS CONSTRUCTOR     ////
 //////////////////////////////////
+
 Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string typeOne, string typeTwo)
 {  // This will be used to create all of the Pokemon in my game.
 	pokemonName = pokeName;
@@ -15,6 +16,7 @@ Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string
 	elementalTypeOne = typeOne;
 	elementalTypeTwo = typeTwo;
 }  // THIS ONE IS PROBABLY USELESS NOW SINCE I'LL BE TRYING TO USE THE CONSTRUCTOR BELOW ONLY
+
 
 Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string typeOne, string typeTwo,
 				 string attackOne, string attackTwo, string attackThree, string attackFour)
@@ -35,7 +37,7 @@ Pokemon::Pokemon(string pokeName, int pokeLVL, int pokeHP, int pokeSpeed, string
 ////    CLASS DESTRUCTOR    ////
 ////////////////////////////////
 Pokemon::~Pokemon()
-{  //	I'M NOT SURE IF I HAVE TO ACTUALLY PUT ANY VALUES IN HERE
+{
 }
 
 ////////////////////////
