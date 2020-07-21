@@ -1,0 +1,4 @@
+﻿  MinimumMaximumFunctionTemplates.cpp
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\MinimumMaximumFunctionTemplates\MinimumMaximumFunctionTemplates.cpp(45): warning C4715: 'maximum<int>': not all control paths return a value
+C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\MinimumMaximumFunctionTemplates\MinimumMaximumFunctionTemplates.cpp(28): warning C4715: 'minimum<int>': not all control paths return a value
+  MinimumMaximumFunctionTemplates.vcxproj -> C:\Users\Nick Hofmann\OneDrive\Desktop\C++\C++ Github Clones\CIS-161\Module14\MinimumMaximumFunctionTemplates\Debug\MinimumMaximumFunctionTemplates.exe
